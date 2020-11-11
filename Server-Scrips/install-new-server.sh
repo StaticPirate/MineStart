@@ -18,7 +18,7 @@ printf "\u001b[32mAll Done Do You Want To Start Your Server?\u001b[0m(y/n)";echo
 read chstart;
 case $chstart in
 	Y | y) echo
-	        cd ~/MineStart/Server-Scrips;./minemc.sh ;;
+	        echo java -Xmx"$ram"M -Xms"$ram"M -jar server.jar nogui ;;
 	N | n) echo
 		echo "Oh, ok!" ;;
 	*) echo
