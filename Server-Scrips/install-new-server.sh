@@ -1,9 +1,9 @@
-cd ~/MineStart/Server-Scrips
-chmod 755 minemc.sh
-cd ~/MineStart
-mkdir MC-Servers
-sudo apt-get install default-jdk
-sudo apt-get install wget
+cd ~/MineStart/Server-Scrips;
+chmod 755 minemc.sh;
+cd ~/MineStart;
+mkdir MC-Servers;
+sudo apt-get install default-jdk;
+sudo apt-get install wget;
 printf "\u001b[34mWhat do you want to name you server?\u001b[0m";echo;
 read servername;
 cd ~/MineStart/MC-Servers/;
@@ -27,15 +27,15 @@ case $servertype in
 	*) echo
 		echo "Ivalid option" ;;
 esac
-mv download server.jar
-mv craftbukkit-1.16.4.jar server.jar
-mv spigot-1.16.4.jar server.jar
+mv download server.jar;
+mv craftbukkit-1.16.4.jar server.jar;
+mv spigot-1.16.4.jar server.jar;
 printf "\u001b[32mDone Installing!\u001b[0m";echo;
 printf "\u001b[34mHow Much Ram Do You Want To Give Your Minecraft Server? ONLY TYPE NUMBERS\u001b[0m";echo;
 read ram;
-echo java -Xmx"$ram"M -Xms"$ram"M -jar server.jar nogui > Start.sh
-chmod 755 Start.sh
-./Start.sh
+echo java -Xmx"$ram"M -Xms"$ram"M -jar server.jar nogui > Start.sh;
+chmod 755 Start.sh;
+./Start.sh;
 printf "\u001b[34mDo You Want To Edit The Flies?\u001b[0m(y/n)";echo;
 read chfiles;
 case $chfiles in
