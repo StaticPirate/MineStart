@@ -3,6 +3,9 @@
 
 HOW TO GET SETUP
 
+How To Video:
+https://youtu.be/D1M1NBe4Kx4
+
 cd ~/MineStart/Server-Scrips;chmod 755 install-new-server.sh
 
 HOW TO INSTALL YOUR SERVER
