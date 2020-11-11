@@ -1,5 +1,7 @@
 cd ~/MineStart/Server-Scrips;
 chmod 755 minemc.sh;
+cd ~/MineStart/Server-Scrips/other;
+chmod 755 file-editor.sh;
 cd ~/MineStart;
 mkdir MC-Servers;
 sudo apt-get install default-jdk;
