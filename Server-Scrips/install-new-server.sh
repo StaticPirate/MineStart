@@ -1,3 +1,5 @@
+cd ~/MineStart/Server-Scrips
+chmod 755 install-new-server.sh
 cd ~/MineStart
 mkdir MC-Servers
 sudo apt-get install default-jdk
