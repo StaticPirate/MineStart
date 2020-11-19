@@ -33,7 +33,7 @@ cd ~/MineStart/Server-Scrips; #setting up .sh files
 chmod 755 install-new-server.sh;
 chmod 755 minemc.sh;
 cd ~/MineStart/Server-Scrips/other;
-chmod file-editor.sh;
+chmod 755 file-editor.sh;
 
 printf "${g}[+]Done!${cc}";echo;
 
