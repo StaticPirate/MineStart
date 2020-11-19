@@ -24,8 +24,6 @@ cd ~/MineStart/ngrok; #installing ngrok
 wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip;
 mv ngrok-stable-linux-amd64.zip ngrok.zip;
 unzip ~/MineStart/ngrok/ngrok.zip;
-touch ngrok-setup.sh;
-chmod 755 ngrok-setup.sh;
 
 printf "${g}[+]Setting Up (.sh) Files${cc}";echo;
 
