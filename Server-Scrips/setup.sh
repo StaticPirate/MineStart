@@ -16,7 +16,6 @@ printf "${g}[+]Setting Up File System${cc}";echo;
 
 cd ~/MineStart/; #setting up file system;
 mkdir MC-Servers;
-mkdir ngrok;
 
 printf "${g}[+]Installing ngrok${y}";echo;
 
