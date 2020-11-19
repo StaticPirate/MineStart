@@ -31,6 +31,8 @@ chmod 755 install-new-server.sh;
 chmod 755 minemc.sh;
 cd ~/MineStart/Server-Scrips/other;
 chmod 755 file-editor.sh;
+cd ~/MineStart/ngrok;
+chmod 755 ngrok-setup.sh
 
 printf "${g}[+]Done!${cc}";echo;
 
