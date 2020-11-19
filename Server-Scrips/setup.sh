@@ -36,3 +36,5 @@ cd ~/MineStart/Server-Scrips/other;
 chmod file-editor.sh;
 
 printf "${g}[+]Done!${cc}";echo;
+
+cd ~/MineStart/;./MineStart.sh;
