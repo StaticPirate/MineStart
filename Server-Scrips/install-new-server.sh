@@ -1,21 +1,22 @@
-cd ~/MineStart/Server-Scrips;
-chmod 755 minemc.sh;
-cd ~/MineStart/Server-Scrips/other;
-chmod 755 file-editor.sh;
-cd ~/MineStart;
-mkdir MC-Servers;
+CC='\u001b[0m' #Clear Color
+BLUE='\u001b[34m'
+RED='\u001b[31m'
+GREEN='\u001b[32m'
+
+printf "${GREEN}[+]Installing java${CC}";echo; #updating needed software
 sudo apt-get install default-jdk;
+printf "${GREEN}[+]Installing wget${CC}";echo;
 sudo apt-get install wget;
-printf "\u001b[34mWhat do you want to name you server?\u001b[0m";echo;
+printf "${BLUE}[-]What do you want to name you server?${CC}";echo; #make server dir
 read servername;
 cd ~/MineStart/MC-Servers/;
 mkdir $servername;
 cd ~/MineStart/MC-Servers/$servername;
-printf "\u001b[34mWhat Type Of Server Do You Want?\u001b[0m";echo;
-printf "\u001b[31mPaper \u001b[0m";
-printf "\u001b[31mVanilla \u001b[0m";
-printf "\u001b[31mBukkit \u001b[0m";
-printf "\u001b[31mSpigot \u001b[0m";echo;
+printf "${BLUE}[-]What Type Of Server Do You Want?${CC}";echo; #getting the server jar
+printf "${RED}Paper ";
+printf "Vanilla ";
+printf "Bukkit ";
+printf "Spigot ${CC}";echo;
 read servertype;
 case $servertype in
 	Paper | paper) echo "Paper"
@@ -27,24 +28,24 @@ case $servertype in
 	Spigot | spigot)
 		wget https://cdn.getbukkit.org/spigot/spigot-1.16.4.jar ;;
 	*) echo
-		echo "Ivalid option" ;;
+		printf "${RED}[-]Ivalid option${CC}";echo; ;;
 esac
-mv download server.jar;
+mv download server.jar; #rename server jar
 mv craftbukkit-1.16.4.jar server.jar;
 mv spigot-1.16.4.jar server.jar;
-printf "\u001b[32mDone Installing!\u001b[0m";echo;
-printf "\u001b[34mHow Much Ram Do You Want To Give Your Minecraft Server? ONLY TYPE NUMBERS\u001b[0m";echo;
+printf "${GREEN}[+]Done Installing!${CC}";echo; #getting the needed files
+printf "${BLUE}[-]How Much Ram Do You Want To Give Your Minecraft Server?${CC}";echo;
 read ram;
 echo java -Xmx"$ram"M -Xms"$ram"M -jar server.jar nogui > Start.sh;
 chmod 755 Start.sh;
 ./Start.sh;
-printf "\u001b[34mDo You Want To Edit The Flies?\u001b[0m(y/n)";echo;
+printf "${GREEN}[+]Do You Want To Edit The Flies?${RED}(y/n)${CC}";echo; #file edit
 read chfiles;
 case $chfiles in
 	Y | y) echo
 		cd ~/MineStart/Server-Scrips/other;./file-editor.sh ;;
 	N | n) echo
-		echo "Ok" ;;
+		printf "${GREEN}[+]Done!${CC}";echo ;;
 	*) echo
-		echo "Ivalid option" ;;
+		printf "${RED}[-]Ivalid option${CC}";echo ;;
 esac
