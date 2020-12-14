@@ -5,7 +5,7 @@ blue='\033[0;34m'
 yellow='\033[1;33m'
 brown='\033[0;33'
 
-cd ~/MineStart/Server-Scrips; #quick setup
+cd Server-Scrips; #quick setup
 chmod 755 setup.sh
 
 printf "
@@ -20,7 +20,7 @@ printf "
                                                                             
                                                                             
 ";echo;
-echo "Version 2.0!";
+echo "Version 1.2.1!";
 echo "Made By StaticPirate";
 
 printf "${green}Choose An Option Below ${red}(ONLY TYPE IN NUMBERS)${cc}";echo; #picking an opition
@@ -36,19 +36,19 @@ printf "[x]Exit${cc}";echo;
 read msch;
 case $msch in
 	0) echo
-		cd ~/MineStart/Server-Scrips;./setup.sh; ;;
+		cd Server-Scrips;./setup.sh; ;;
 	1) echo
-		cd ~/MineStart/Server-Scrips;./minemc.sh; ;;
+		cd Server-Scrips;./minemc.sh; ;;
 	2) echo
-		cd ~/MineStart/Server-Scrips;./install-new-server.sh; ;;
+		cd Server-Scrips;./install-new-server.sh; ;;
 	3) echo
-		cd ~/MineStart/Server-Scrips/other;./file-editor.sh;  ;;
+		cd Server-Scrips/other;./file-editor.sh;  ;;
 	4) echo
-		cd ~/MineStart/ngrok/;proxychains ./ngrok tcp 25565; ;;
+		cd ngrok/;proxychains ./ngrok tcp 25565; ;;
 	5) echo
-		cd ~/MineStart/ngrok/;./ngrok-setup.sh; ;;
+		cd ngrok/;./ngrok-setup.sh; ;;
 	x) echo
 		printf "${yellow}[-]Exiting${cc}";echo; ;;
 	*)
-		printf "${red}[-]WRONG ANSWER${cc}";echo;cd ~/MineStart;./MineStart.sh; ;;
+		printf "${red}[-]WRONG ANSWER${cc}";echo;./MineStart.sh; ;;
 esac
