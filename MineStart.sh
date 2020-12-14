@@ -42,7 +42,7 @@ case $msch in
 	2) echo
 		cd Server-Scrips;./install-new-server.sh; ;;
 	3) echo
-		cd Server-Scrips/other;./file-editor.sh;  ;;
+		cd Server-Scrips;./file-editor.sh;  ;;
 	4) echo
 		cd ngrok/;proxychains ./ngrok tcp 25565; ;;
 	5) echo
