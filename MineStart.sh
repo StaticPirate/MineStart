@@ -81,20 +81,20 @@ case $msch in
 			./Start.sh ;;
 				
 				2) echo
-					printf "${GREEN}[+]Installing java${CC}";echo; #updating needed software
+					printf "${green}[+]Installing java${cc}";echo; #updating needed software
 					sudo apt-get install default-jdk;
-					printf "${GREEN}[+]Installing wget${CC}";echo;
+					printf "${green}[+]Installing wget${cc}";echo;
 					sudo apt-get install wget;
-					printf "${BLUE}[-]What do you want to name you server?${CC}";echo; #make server dir
+					printf "${blue}[-]What do you want to name you server?${cc}";echo; #make server dir
 					read servername;
 					cd ~/MineStart/MC-Servers/;
 					mkdir $servername;
 					cd ~/MineStart/MC-Servers/$servername;
-					printf "${BLUE}[-]What Type Of Server Do You Want?${CC}";echo; #getting the server jar
-					printf "${RED}Paper ";
+					printf "${blue}[-]What Type Of Server Do You Want?${cc}";echo; #getting the server jar
+					printf "${red}Paper ";
 					printf "Vanilla ";
 					printf "Bukkit ";
-					printf "Spigot ${CC}";echo;
+					printf "Spigot ${cc}";echo;
 					read servertype;
 					case $servertype in
 						Paper | paper) echo "Paper"
@@ -111,21 +111,21 @@ case $msch in
 					mv download server.jar; #rename server jar
 					mv craftbukkit-1.16.4.jar server.jar;
 					mv spigot-1.16.4.jar server.jar;
-					printf "${GREEN}[+]Done Installing!${CC}";echo; #getting the needed files
-					printf "${BLUE}[-]How Much Ram Do You Want To Give Your Minecraft Server?${CC}";echo;
+					printf "${green}[+]Done Installing!${cc}";echo; #getting the needed files
+					printf "${blue}[-]How Much Ram Do You Want To Give Your Minecraft Server?${cc}";echo;
 					read ram;
 					echo java -Xmx"$ram"M -Xms"$ram"M -jar server.jar nogui > Start.sh;
 					chmod 755 Start.sh;
 					./Start.sh;
-					printf "${GREEN}[+]Do You Want To Edit The Flies?${RED}(y/n)${CC}";echo; #file edit
+					printf "${green}[+]Do You Want To Edit The Flies?${red}(y/n)${cc}";echo; #file edit
 					read chfiles;
 					case $chfiles in
 						Y | y) echo
 							cd ~/MineStart/Server-Scrips/other;./file-editor.sh ;;
 						N | n) echo
-							printf "${GREEN}[+]Done!${CC}";echo ;;
+							printf "${green}[+]Done!${cc}";echo ;;
 						*) echo
-							printf "${RED}[-]Ivalid option${CC}";echo ;;
+							printf "${red}[-]Ivalid option${cc}";echo ;;
 					esac ;;
 						
 						3) echo
