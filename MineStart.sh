@@ -66,6 +66,7 @@ case $msch in
 	chmod 755 ngrok-setup.sh
 
 	printf "${g}[+]Done!${cc}";echo;
+	cd -
 	./MineStart.sh ;;
 		
 		1) echo
@@ -79,6 +80,7 @@ case $msch in
 			chmod 755 Start.sh
 			printf "\u001b[34mWaiting For Jar File To Load...\u001b[0m";echo;
 			./Start.sh 
+			cd -
 			./MineStart.sh ;;
 				
 				2) echo
@@ -128,6 +130,7 @@ case $msch in
 						*) echo
 							printf "${red}[-]Ivalid option${cc}";echo ;;
 					esac
+					cd -
 					./MineStart.sh ;;
 						
 						3) echo
@@ -150,17 +153,22 @@ case $msch in
 							*) echo
 								echo "I'm Not Sure What You Mean"
 						esac
+						cd -
 						./MineStart.sh ;;
 	4) echo
 		cd ngrok/;proxychains ./ngrok tcp 25565;
+		cd -
 		./MineStart ;;
 	5) echo
 		cd ngrok/;./ngrok-setup.sh;
+		cd -
 		./MineStart.sh ;;
 	x) echo
 		printf "${yellow}[-]Exiting${cc}";echo; 
+		cd -
 		./MineStart.sh ;;
 	*)
 		printf "${red}[-]WRONG ANSWER${cc}";echo;./MineStart.sh;
+		cd -
 		./MineStart.sh ;;
 esac
