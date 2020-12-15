@@ -20,7 +20,7 @@ printf "
                                                                             
                                                                             
 ";echo;
-echo "Version 1.2.1!";
+echo "Version 1.3.0!";
 echo "Made By StaticPirate";
 
 printf "${green}Choose An Option Below ${red}(ONLY TYPE IN NUMBERS)${cc}";echo; #picking an opition
