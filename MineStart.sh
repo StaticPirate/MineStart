@@ -43,21 +43,19 @@ case $msch in
 	sudo apt-get install proxychains;
 	sudo apt-get install tor;
 
-	printf "${g}[+]Setting Up File System${cc}";echo;
+	printf "${green}[+]Setting Up File System${cc}";echo;
 	
 	#setting up file system;
 	mkdir MC-Servers;
 
-	printf "${g}[+]Installing ngrok${y}";echo;
+	printf "${green}[+]Installing ngrok${y}";echo;
 
 	cd ngrok; #installing ngrok
 	wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip;
 	mv ngrok-stable-linux-amd64.zip ngrok.zip;
 	unzip ngrok.zip;
 
-	printf "${g}[+]Setting Up (.sh) Files${cc}";echo;
-
-	printf "${g}[+]Done!${cc}";echo;
+	printf "${green}[+]Done!${cc}";echo;
 	cd -
 	./MineStart.sh ;;
 		
