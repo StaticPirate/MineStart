@@ -19,7 +19,7 @@ printf "
                                                                             
                                                                             
 ";echo;
-echo "Version 1.3.0!";
+echo "Version 1.3.2!";
 echo "Made By StaticPirate";
 
 printf "${green}Choose An Option Below ${red}(ONLY TYPE IN NUMBERS)${cc}";echo; #picking an opition
@@ -44,26 +44,18 @@ case $msch in
 	sudo apt-get install tor;
 
 	printf "${g}[+]Setting Up File System${cc}";echo;
-
-	cd ~/MineStart/; #setting up file system;
+	
+	#setting up file system;
 	mkdir MC-Servers;
 
 	printf "${g}[+]Installing ngrok${y}";echo;
 
-	cd ~/MineStart/ngrok; #installing ngrok
+	cd ngrok; #installing ngrok
 	wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip;
 	mv ngrok-stable-linux-amd64.zip ngrok.zip;
-	unzip ~/MineStart/ngrok/ngrok.zip;
+	unzip ngrok.zip;
 
 	printf "${g}[+]Setting Up (.sh) Files${cc}";echo;
-
-	cd ~/MineStart/Server-Scrips; #setting up .sh files
-	chmod 755 install-new-server.sh;
-	chmod 755 minemc.sh;
-	cd ~/MineStart/Server-Scrips/other;
-	chmod 755 file-editor.sh;
-	cd ~/MineStart/ngrok;
-	chmod 755 ngrok-setup.sh
 
 	printf "${g}[+]Done!${cc}";echo;
 	cd -
@@ -72,11 +64,12 @@ case $msch in
 		1) echo
 			printf "\u001b[34mINSTALLING/UPDATING JAVA\u001b[0m";echo;
 			sudo apt-get install default-jdk;
-			cd ~/MineStart/MC-Servers;
+			cd MC-Servers;
 			printf "\u001b[34mWhat Was The Name Of Your Server?\u001b[0m";echo;
 			ls;
 			read chname;
-			cd ~/MineStart/MC-Servers/$chname;
+			cd -
+			cd MC-Servers/$chname;
 			chmod 755 Start.sh
 			printf "\u001b[34mWaiting For Jar File To Load...\u001b[0m";echo;
 			./Start.sh 
@@ -90,9 +83,10 @@ case $msch in
 					sudo apt-get install wget;
 					printf "${blue}[-]What do you want to name you server?${cc}";echo; #make server dir
 					read servername;
-					cd ~/MineStart/MC-Servers/;
+					cd MC-Servers/;
 					mkdir $servername;
-					cd ~/MineStart/MC-Servers/$servername;
+					cd -
+					cd $servername;
 					printf "${blue}[-]What Type Of Server Do You Want?${cc}";echo; #getting the server jar
 					printf "${red}Paper ";
 					printf "Vanilla ";
@@ -124,7 +118,7 @@ case $msch in
 					read chfiles;
 					case $chfiles in
 						Y | y) echo
-							cd ~/MineStart/Server-Scrips/other;./file-editor.sh ;;
+							./MineStart.sh ;;
 						N | n) echo
 							printf "${green}[+]Done!${cc}";echo ;;
 						*) echo
@@ -147,9 +141,9 @@ case $msch in
 						read next;
 						case $next in
 							Y | y) echo
-								cd ~/MineStart/Server-Scrips;./minemc.sh ;;
+								./MineStart.sh ;;
 							N | n) echo
-								echo "Ok";cd ~/MineStart/Server-Scrips/other;./file-editor.sh ;;
+								./MineStart.sh ;;
 							*) echo
 								echo "I'm Not Sure What You Mean"
 						esac
