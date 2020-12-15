@@ -5,8 +5,7 @@ blue='\033[0;34m'
 yellow='\033[1;33m'
 brown='\033[0;33'
 
-cd Server-Scrips; #quick setup
-chmod 755 setup.sh
+clear #makes a clean slate
 
 printf "
                  ▄▄                                                         
@@ -66,7 +65,8 @@ case $msch in
 	cd ~/MineStart/ngrok;
 	chmod 755 ngrok-setup.sh
 
-	printf "${g}[+]Done!${cc}";echo; ;;
+	printf "${g}[+]Done!${cc}";echo;
+	./MineStart.sh ;;
 		
 		1) echo
 			printf "\u001b[34mINSTALLING/UPDATING JAVA\u001b[0m";echo;
@@ -78,7 +78,8 @@ case $msch in
 			cd ~/MineStart/MC-Servers/$chname;
 			chmod 755 Start.sh
 			printf "\u001b[34mWaiting For Jar File To Load...\u001b[0m";echo;
-			./Start.sh ;;
+			./Start.sh 
+			./MineStart.sh ;;
 				
 				2) echo
 					printf "${green}[+]Installing java${cc}";echo; #updating needed software
@@ -126,7 +127,8 @@ case $msch in
 							printf "${green}[+]Done!${cc}";echo ;;
 						*) echo
 							printf "${red}[-]Ivalid option${cc}";echo ;;
-					esac ;;
+					esac
+					./MineStart.sh ;;
 						
 						3) echo
 								cd ~/MineStart/MC-Servers
@@ -147,13 +149,18 @@ case $msch in
 								echo "Ok";cd ~/MineStart/Server-Scrips/other;./file-editor.sh ;;
 							*) echo
 								echo "I'm Not Sure What You Mean"
-						esac ;;
+						esac
+						./MineStart.sh ;;
 	4) echo
-		cd ngrok/;proxychains ./ngrok tcp 25565; ;;
+		cd ngrok/;proxychains ./ngrok tcp 25565;
+		./MineStart ;;
 	5) echo
-		cd ngrok/;./ngrok-setup.sh; ;;
+		cd ngrok/;./ngrok-setup.sh;
+		./MineStart.sh ;;
 	x) echo
-		printf "${yellow}[-]Exiting${cc}";echo; ;;
+		printf "${yellow}[-]Exiting${cc}";echo; 
+		./MineStart.sh ;;
 	*)
-		printf "${red}[-]WRONG ANSWER${cc}";echo;./MineStart.sh; ;;
+		printf "${red}[-]WRONG ANSWER${cc}";echo;./MineStart.sh;
+		./MineStart.sh ;;
 esac
