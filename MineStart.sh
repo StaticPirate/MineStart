@@ -120,7 +120,7 @@ case $msch in
 					echo -e "${yellow}"
 					case $servertype in
 						Paper | paper) echo "Paper"
-								wget https://papermc.io/api/v1/paper/1.16.4/267/download ;;
+								wget https://papermc.io/api/v1/paper/1.16.4/325/download ;;
 						Vanilla | vanilla) echo "Vanilla"
 								wget https://launcher.mojang.com/v1/objects/35139deedbd5182953cf1caa23835da59ca3d7cd/server.jar ;;
 						Bukkit | bukkit) echo "Bukkit"
