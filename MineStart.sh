@@ -83,6 +83,7 @@ case $msch in
 					read servername;
 					cd MC-Servers/;
 					mkdir $servername;
+					echo -e "${cc}"
 					cd $servername;
 					printf "${blue}[-]What Type Of Server Do You Want?${cc}";echo; #getting the server jar
 					printf "${red}Paper ";
