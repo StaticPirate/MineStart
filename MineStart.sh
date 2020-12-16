@@ -21,7 +21,7 @@ case $next in
 	Y | y) echo
 		./MineStart.sh ;;
 	N | n) echo
-		./MineStart.sh ;;
+		file-edit ;;
 	*) echo
 		echo "I'm Not Sure What You Mean"
 esac
