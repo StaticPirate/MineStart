@@ -83,13 +83,13 @@ case $msch in
 					read servername;
 					cd MC-Servers/;
 					mkdir $servername;
-					cd -
 					cd $servername;
 					printf "${blue}[-]What Type Of Server Do You Want?${cc}";echo; #getting the server jar
 					printf "${red}Paper ";
 					printf "Vanilla ";
 					printf "Bukkit ";
-					printf "Spigot ${cc}";echo;
+					printf "Spigot ${cc}"
+					echo
 					read servertype;
 					case $servertype in
 						Paper | paper) echo "Paper"
@@ -130,7 +130,6 @@ case $msch in
 						printf "\u001b[34mWhat Server Do You Want To Edit?\u001b[0m";echo;
 						ls;
 						read MCfile;
-						cd -
 						cd MC-Servers/$MCfile;
 						printf "\u001b[34mWhich File Do You Want To Edit?\u001b[0m";echo;
 						ls;
