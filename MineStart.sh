@@ -77,7 +77,7 @@ case $msch in
 				2) echo
 					printf "${green}[+]Installing java${yellow}";echo; #updating needed software
 					sudo apt-get install default-jdk;
-					printf "${green}[+]Installing wget${yello}";echo;
+					printf "${green}[+]Installing wget${yellow}";echo;
 					sudo apt-get install wget;
 					printf "${blue}[-]What do you want to name you server?${yellow}";echo; #make server dir
 					read servername;
