@@ -65,7 +65,7 @@ case $msch in
 			printf "\u001b[34mWhat Was The Name Of Your Server?\u001b[0m";echo;
 			ls;
 			read chname;
-			cd MC-Servers/$chname;
+			cd $chname;
 			chmod 755 Start.sh
 			printf "\u001b[34mWaiting For Jar File To Load...\u001b[0m";echo;
 			./Start.sh 
