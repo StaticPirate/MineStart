@@ -5,8 +5,32 @@ blue='\033[0;34m'
 yellow='\033[1;33m'
 brown='\033[0;33'
 
-cd Server-Scrips; #quick setup
-chmod 755 setup.sh
+function file-edit {
+cd MC-Servers
+printf "\u001b[34mWhat Server Do You Want To Edit?\u001b[0m";echo;
+ls;
+read MCfile;
+cd $MCfile;
+printf "\u001b[34mWhich File Do You Want To Edit?\u001b[0m";echo;
+ls;
+read filename;
+nano $filename;
+printf "\u001b[34mIs That It?\u001b[0m(y/n)";echo;
+read next;
+case $next in
+	Y | y) echo
+		./MineStart.sh ;;
+	N | n) echo
+		file-edit ;;
+	*) echo
+		echo "I'm Not Sure What You Mean"
+esac
+cd ..
+cd ..
+./MineStart.sh
+}
+
+clear #makes a clean slate
 
 printf "
                  ▄▄                                                         
@@ -20,7 +44,7 @@ printf "
                                                                             
                                                                             
 ";echo;
-echo "Version 1.3.0!";
+echo "Version 1.3.4!";
 echo "Made By StaticPirate";
 
 printf "${green}Choose An Option Below ${red}(ONLY TYPE IN NUMBERS)${cc}";echo; #picking an opition
@@ -36,7 +60,7 @@ printf "[x]Exit${cc}";echo;
 read msch;
 case $msch in
 	0) echo
-		printf "${g}[+]Installing Requirements${y}";echo;
+		printf "${green}[+]Installing Requirements${yellow}";echo;
 
 	sudo apt-get update; #installing requirements
 	sudo apt-get install default-jdk;
@@ -44,61 +68,59 @@ case $msch in
 	sudo apt-get install proxychains;
 	sudo apt-get install tor;
 
-	printf "${g}[+]Setting Up File System${cc}";echo;
-
-	cd ~/MineStart/; #setting up file system;
+	printf "${green}[+]Setting Up File System${cc}";echo;
+	
+	#setting up file system;
 	mkdir MC-Servers;
 
-	printf "${g}[+]Installing ngrok${y}";echo;
+	printf "${green}[+]Installing ngrok${yellow}";echo;
 
-	cd ~/MineStart/ngrok; #installing ngrok
+	cd ngrok; #installing ngrok
 	wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip;
 	mv ngrok-stable-linux-amd64.zip ngrok.zip;
-	unzip ~/MineStart/ngrok/ngrok.zip;
-
-	printf "${g}[+]Setting Up (.sh) Files${cc}";echo;
-
-	cd ~/MineStart/Server-Scrips; #setting up .sh files
-	chmod 755 install-new-server.sh;
-	chmod 755 minemc.sh;
-	cd ~/MineStart/Server-Scrips/other;
-	chmod 755 file-editor.sh;
-	cd ~/MineStart/ngrok;
-	chmod 755 ngrok-setup.sh
-
-	printf "${g}[+]Done!${cc}";echo; ;;
+	unzip ngrok.zip;
+	printf "${green}[+]Done!${cc}";echo;
+	cd ..
+	./MineStart.sh ;;
 		
 		1) echo
 			printf "\u001b[34mINSTALLING/UPDATING JAVA\u001b[0m";echo;
 			sudo apt-get install default-jdk;
-			cd ~/MineStart/MC-Servers;
+			cd MC-Servers;
 			printf "\u001b[34mWhat Was The Name Of Your Server?\u001b[0m";echo;
 			ls;
 			read chname;
-			cd ~/MineStart/MC-Servers/$chname;
+			cd $chname;
 			chmod 755 Start.sh
 			printf "\u001b[34mWaiting For Jar File To Load...\u001b[0m";echo;
-			./Start.sh ;;
+			./Start.sh 
+			cd ..
+			cd ..
+			./MineStart.sh ;;
 				
 				2) echo
-					printf "${green}[+]Installing java${cc}";echo; #updating needed software
+					printf "${green}[+]Installing java${yellow}";echo; #updating needed software
 					sudo apt-get install default-jdk;
-					printf "${green}[+]Installing wget${cc}";echo;
+					printf "${green}[+]Installing wget${yellow}";echo;
 					sudo apt-get install wget;
-					printf "${blue}[-]What do you want to name you server?${cc}";echo; #make server dir
+					printf "${blue}[-]What do you want to name you server?${yellow}";echo -e "${cc}"; #make server dir
 					read servername;
-					cd ~/MineStart/MC-Servers/;
+					echo -e "${yellow}"
+					cd MC-Servers/;
 					mkdir $servername;
-					cd ~/MineStart/MC-Servers/$servername;
+					echo -e "${cc}"
+					cd $servername;
 					printf "${blue}[-]What Type Of Server Do You Want?${cc}";echo; #getting the server jar
 					printf "${red}Paper ";
 					printf "Vanilla ";
 					printf "Bukkit ";
-					printf "Spigot ${cc}";echo;
+					printf "Spigot ${cc}"
+					echo
 					read servertype;
+					echo -e "${yellow}"
 					case $servertype in
 						Paper | paper) echo "Paper"
-								wget https://papermc.io/api/v1/paper/1.16.4/267/download ;;
+								wget https://papermc.io/api/v1/paper/1.16.4/325/download ;;
 						Vanilla | vanilla) echo "Vanilla"
 								wget https://launcher.mojang.com/v1/objects/35139deedbd5182953cf1caa23835da59ca3d7cd/server.jar ;;
 						Bukkit | bukkit) echo "Bukkit"
@@ -106,7 +128,7 @@ case $msch in
 						Spigot | spigot)
 								wget https://cdn.getbukkit.org/spigot/spigot-1.16.4.jar ;;
 						*) echo
-								printf "${RED}[-]Ivalid option${CC}";echo; ;;
+								printf "${red}[-]Ivalid option${cc}";echo; ;;
 					esac
 					mv download server.jar; #rename server jar
 					mv craftbukkit-1.16.4.jar server.jar;
@@ -117,23 +139,28 @@ case $msch in
 					echo java -Xmx"$ram"M -Xms"$ram"M -jar server.jar nogui > Start.sh;
 					chmod 755 Start.sh;
 					./Start.sh;
-					printf "${green}[+]Do You Want To Edit The Flies?${red}(y/n)${cc}";echo; #file edit
+					printf "${green}[+]Do You Want To Edit The Flies?${yellow}(y/n)${cc}";echo; #file edit
 					read chfiles;
 					case $chfiles in
 						Y | y) echo
-							cd ~/MineStart/Server-Scrips/other;./file-editor.sh ;;
+							cd ..
+							cd ..
+							file-edit ;;
 						N | n) echo
 							printf "${green}[+]Done!${cc}";echo ;;
 						*) echo
 							printf "${red}[-]Ivalid option${cc}";echo ;;
-					esac ;;
+					esac
+					cd ..
+					cd ..
+					./MineStart.sh ;;
 						
 						3) echo
-								cd ~/MineStart/MC-Servers
+						cd MC-Servers
 						printf "\u001b[34mWhat Server Do You Want To Edit?\u001b[0m";echo;
 						ls;
 						read MCfile;
-						cd ~/MineStart/MC-Servers/$MCfile;
+						cd $MCfile;
 						printf "\u001b[34mWhich File Do You Want To Edit?\u001b[0m";echo;
 						ls;
 						read filename;
@@ -142,18 +169,27 @@ case $msch in
 						read next;
 						case $next in
 							Y | y) echo
-								cd ~/MineStart/Server-Scrips;./minemc.sh ;;
+								./MineStart.sh ;;
 							N | n) echo
-								echo "Ok";cd ~/MineStart/Server-Scrips/other;./file-editor.sh ;;
+								./MineStart.sh ;;
 							*) echo
 								echo "I'm Not Sure What You Mean"
-						esac ;;
+						esac
+						cd ..
+						cd ..
+						./MineStart.sh ;;
 	4) echo
-		cd ngrok/;proxychains ./ngrok tcp 25565; ;;
+		cd ngrok/;proxychains ./ngrok tcp 25565;
+		cd ..
+		./MineStart ;;
 	5) echo
-		cd ngrok/;./ngrok-setup.sh; ;;
+		cd ngrok/;./ngrok-setup.sh;
+		cd ..
+		./MineStart.sh ;;
 	x) echo
-		printf "${yellow}[-]Exiting${cc}";echo; ;;
+		printf "${yellow}[-]Exiting${cc}";echo ;;
 	*)
-		printf "${red}[-]WRONG ANSWER${cc}";echo;./MineStart.sh; ;;
+		printf "${red}[-]WRONG ANSWER${cc}";echo;./MineStart.sh;
+		cd ..
+		./MineStart.sh ;;
 esac
