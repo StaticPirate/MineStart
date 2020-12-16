@@ -54,9 +54,8 @@ case $msch in
 	wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip;
 	mv ngrok-stable-linux-amd64.zip ngrok.zip;
 	unzip ngrok.zip;
-
 	printf "${green}[+]Done!${cc}";echo;
-	cd -
+	cd ..
 	./MineStart.sh ;;
 		
 		1) echo
@@ -66,12 +65,12 @@ case $msch in
 			printf "\u001b[34mWhat Was The Name Of Your Server?\u001b[0m";echo;
 			ls;
 			read chname;
-			cd -
 			cd MC-Servers/$chname;
 			chmod 755 Start.sh
 			printf "\u001b[34mWaiting For Jar File To Load...\u001b[0m";echo;
 			./Start.sh 
-			cd -
+			cd ..
+			cd ..
 			./MineStart.sh ;;
 				
 				2) echo
@@ -124,7 +123,8 @@ case $msch in
 						*) echo
 							printf "${red}[-]Ivalid option${cc}";echo ;;
 					esac
-					cd -
+					cd ..
+					cd ..
 					./MineStart.sh ;;
 						
 						3) echo
@@ -147,22 +147,23 @@ case $msch in
 							*) echo
 								echo "I'm Not Sure What You Mean"
 						esac
-						cd -
+						cd ..
+						cd ..
 						./MineStart.sh ;;
 	4) echo
 		cd ngrok/;proxychains ./ngrok tcp 25565;
-		cd -
+		cd ..
 		./MineStart ;;
 	5) echo
 		cd ngrok/;./ngrok-setup.sh;
-		cd -
+		cd ..
 		./MineStart.sh ;;
 	x) echo
 		printf "${yellow}[-]Exiting${cc}";echo; 
-		cd -
+		cd ..
 		./MineStart.sh ;;
 	*)
 		printf "${red}[-]WRONG ANSWER${cc}";echo;./MineStart.sh;
-		cd -
+		cd ..
 		./MineStart.sh ;;
 esac
