@@ -75,11 +75,11 @@ case $msch in
 			./MineStart.sh ;;
 				
 				2) echo
-					printf "${green}[+]Installing java${cc}";echo; #updating needed software
+					printf "${green}[+]Installing java${yellow}";echo; #updating needed software
 					sudo apt-get install default-jdk;
-					printf "${green}[+]Installing wget${cc}";echo;
+					printf "${green}[+]Installing wget${yello}";echo;
 					sudo apt-get install wget;
-					printf "${blue}[-]What do you want to name you server?${cc}";echo; #make server dir
+					printf "${blue}[-]What do you want to name you server?${yellow}";echo; #make server dir
 					read servername;
 					cd MC-Servers/;
 					mkdir $servername;
@@ -91,6 +91,7 @@ case $msch in
 					printf "Spigot ${cc}"
 					echo
 					read servertype;
+					echo -e "${yellow}"
 					case $servertype in
 						Paper | paper) echo "Paper"
 								wget https://papermc.io/api/v1/paper/1.16.4/267/download ;;
@@ -101,7 +102,7 @@ case $msch in
 						Spigot | spigot)
 								wget https://cdn.getbukkit.org/spigot/spigot-1.16.4.jar ;;
 						*) echo
-								printf "${RED}[-]Ivalid option${CC}";echo; ;;
+								printf "${red}[-]Ivalid option${cc}";echo; ;;
 					esac
 					mv download server.jar; #rename server jar
 					mv craftbukkit-1.16.4.jar server.jar;
@@ -112,7 +113,7 @@ case $msch in
 					echo java -Xmx"$ram"M -Xms"$ram"M -jar server.jar nogui > Start.sh;
 					chmod 755 Start.sh;
 					./Start.sh;
-					printf "${green}[+]Do You Want To Edit The Flies?${red}(y/n)${cc}";echo; #file edit
+					printf "${green}[+]Do You Want To Edit The Flies?${yellow}(y/n)${cc}";echo; #file edit
 					read chfiles;
 					case $chfiles in
 						Y | y) echo
