@@ -56,6 +56,7 @@ printf "[2]Make A New Server";echo;
 printf "[3]Edit Server Files";echo;
 printf "[4]Start ngrok";echo;
 printf "[5]Set Up ngrok";echo;
+echo -e "[6]Make Manual Server Backup"
 printf "[x]Exit${cc}";echo;
 read msch;
 case $msch in
@@ -137,9 +138,16 @@ case $msch in
 					printf "${blue}[-]How Much Ram Do You Want To Give Your Minecraft Server?${cc}";echo;
 					read ram;
 					echo java -Xmx"$ram"M -Xms"$ram"M -jar server.jar nogui > Start.sh;
+					echo -e "${blue}[-]Do You Want Automatic Backups? ${yellow}(y/n)${cc}"
+					read autobackup
+					case $autobackup in
+						Y | y) echo 
+							echo ./backup.sh > Start.sh ;;
+						N | n) echo 
+							echo "${green}[+]OK!${cc}"
 					chmod 755 Start.sh;
 					./Start.sh;
-					printf "${green}[+]Do You Want To Edit The Flies?${yellow}(y/n)${cc}";echo; #file edit
+					printf "${blue}[-]Do You Want To Edit The Flies?${yellow}(y/n)${cc}";echo; #file edit
 					read chfiles;
 					case $chfiles in
 						Y | y) echo
@@ -186,6 +194,14 @@ case $msch in
 		cd ngrok/;./ngrok-setup.sh;
 		cd ..
 		./MineStart.sh ;;
+	6) echo
+		cd MC-Servers
+		echo -e "${green}[-]What Server Do You Want To Backup?${cc}"
+		ls
+		read chbackup
+		cp -r $chbackup/ MC-Backups
+		echo -e "[+]Done!"
+		cd ..
 	x) echo
 		printf "${yellow}[-]Exiting${cc}";echo ;;
 	*)
