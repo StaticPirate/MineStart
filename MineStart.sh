@@ -5,6 +5,31 @@ blue='\033[0;34m'
 yellow='\033[1;33m'
 brown='\033[0;33'
 
+function file-edit{
+cd MC-Servers
+printf "\u001b[34mWhat Server Do You Want To Edit?\u001b[0m";echo;
+ls;
+read MCfile;
+cd $MCfile;
+printf "\u001b[34mWhich File Do You Want To Edit?\u001b[0m";echo;
+ls;
+read filename;
+nano $filename;
+printf "\u001b[34mIs That It?\u001b[0m(y/n)";echo;
+read next;
+case $next in
+	Y | y) echo
+		./MineStart.sh ;;
+	N | n) echo
+		./MineStart.sh ;;
+	*) echo
+		echo "I'm Not Sure What You Mean"
+esac
+cd ..
+cd ..
+./MineStart.sh
+}
+
 clear #makes a clean slate
 
 printf "
@@ -19,7 +44,7 @@ printf "
                                                                             
                                                                             
 ";echo;
-echo "Version 1.3.3!";
+echo "Version 1.3.4!";
 echo "Made By StaticPirate";
 
 printf "${green}Choose An Option Below ${red}(ONLY TYPE IN NUMBERS)${cc}";echo; #picking an opition
@@ -118,7 +143,7 @@ case $msch in
 					read chfiles;
 					case $chfiles in
 						Y | y) echo
-							./MineStart.sh ;;
+							file-edit ;;
 						N | n) echo
 							printf "${green}[+]Done!${cc}";echo ;;
 						*) echo
