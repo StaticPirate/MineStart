@@ -78,8 +78,9 @@ case $msch in
 					sudo apt-get install default-jdk;
 					printf "${green}[+]Installing wget${yellow}";echo;
 					sudo apt-get install wget;
-					printf "${blue}[-]What do you want to name you server?${yellow}";echo; #make server dir
+					printf "${blue}[-]What do you want to name you server?${yellow}";echo -e "${cc}"; #make server dir
 					read servername;
+					echo -e "${yellow}"
 					cd MC-Servers/;
 					mkdir $servername;
 					echo -e "${cc}"
