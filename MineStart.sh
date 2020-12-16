@@ -213,7 +213,7 @@ case $msch in
 		read chbackup
 		cp -r $chbackup/ MC-Backups
 		echo -e "[+]Done!"
-		cd ..
+		cd .. ;;
 	x) echo
 		printf "${yellow}[-]Exiting${cc}";echo ;;
 	*)
