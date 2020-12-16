@@ -35,7 +35,7 @@ printf "[x]Exit${cc}";echo;
 read msch;
 case $msch in
 	0) echo
-		printf "${g}[+]Installing Requirements${y}";echo;
+		printf "${g}[+]Installing Requirements${yellow}";echo;
 
 	sudo apt-get update; #installing requirements
 	sudo apt-get install default-jdk;
@@ -48,7 +48,7 @@ case $msch in
 	#setting up file system;
 	mkdir MC-Servers;
 
-	printf "${green}[+]Installing ngrok${y}";echo;
+	printf "${green}[+]Installing ngrok${yellow}";echo;
 
 	cd ngrok; #installing ngrok
 	wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip;
