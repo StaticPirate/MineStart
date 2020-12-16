@@ -133,7 +133,7 @@ case $msch in
 						printf "\u001b[34mWhat Server Do You Want To Edit?\u001b[0m";echo;
 						ls;
 						read MCfile;
-						cd MC-Servers/$MCfile;
+						cd $MCfile;
 						printf "\u001b[34mWhich File Do You Want To Edit?\u001b[0m";echo;
 						ls;
 						read filename;
