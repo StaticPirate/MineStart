@@ -19,7 +19,7 @@ printf "
                                                                             
                                                                             
 ";echo;
-echo "Version 1.3.2!";
+echo "Version 1.3.3!";
 echo "Made By StaticPirate";
 
 printf "${green}Choose An Option Below ${red}(ONLY TYPE IN NUMBERS)${cc}";echo; #picking an opition
@@ -126,11 +126,12 @@ case $msch in
 					./MineStart.sh ;;
 						
 						3) echo
-								cd ~/MineStart/MC-Servers
+						cd MC-Servers
 						printf "\u001b[34mWhat Server Do You Want To Edit?\u001b[0m";echo;
 						ls;
 						read MCfile;
-						cd ~/MineStart/MC-Servers/$MCfile;
+						cd -
+						cd MC-Servers/$MCfile;
 						printf "\u001b[34mWhich File Do You Want To Edit?\u001b[0m";echo;
 						ls;
 						read filename;
