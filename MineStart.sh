@@ -35,7 +35,7 @@ printf "[x]Exit${cc}";echo;
 read msch;
 case $msch in
 	0) echo
-		printf "${g}[+]Installing Requirements${yellow}";echo;
+		printf "${green}[+]Installing Requirements${yellow}";echo;
 
 	sudo apt-get update; #installing requirements
 	sudo apt-get install default-jdk;
