@@ -44,7 +44,7 @@ printf "
                                                                             
                                                                             
 ";echo;
-echo "Version 1.3.4!";
+echo "Version 1.4.0!";
 echo "Made By StaticPirate";
 
 printf "${green}Choose An Option Below ${red}(ONLY TYPE IN NUMBERS)${cc}";echo; #picking an opition
@@ -73,6 +73,9 @@ case $msch in
 	
 	#setting up file system;
 	mkdir MC-Servers;
+	cd MC-Servers
+	mkdir MC-Backups
+	cd..
 
 	printf "${green}[+]Installing ngrok${yellow}";echo;
 
@@ -134,17 +137,26 @@ case $msch in
 					mv download server.jar; #rename server jar
 					mv craftbukkit-1.16.4.jar server.jar;
 					mv spigot-1.16.4.jar server.jar;
+					echo "date
+					cd ..
+					cp -r $servername/ MC-Backups/
+					date"
 					printf "${green}[+]Done Installing!${cc}";echo; #getting the needed files
 					printf "${blue}[-]How Much Ram Do You Want To Give Your Minecraft Server?${cc}";echo;
 					read ram;
-					echo java -Xmx"$ram"M -Xms"$ram"M -jar server.jar nogui > Start.sh;
 					echo -e "${blue}[-]Do You Want Automatic Backups? ${yellow}(y/n)${cc}"
 					read autobackup
 					case $autobackup in
 						Y | y) echo 
-							echo ./backup.sh > Start.sh ;;
+							echo ./backup.sh & > Start.sh 
+							echo java -Xmx"$ram"M -Xms"$ram"M -jar server.jar nogui > Start.sh 
+							echo disown ;;
 						N | n) echo 
-							echo "${green}[+]OK!${cc}"
+							echo java -Xmx"$ram"M -Xms"$ram"M -jar server.jar nogui > Start.sh ;;
+						*) echo 
+							echo -e "Try Again"
+					esac
+					echo java -Xmx"$ram"M -Xms"$ram"M -jar server.jar nogui > Start.sh;
 					chmod 755 Start.sh;
 					./Start.sh;
 					printf "${blue}[-]Do You Want To Edit The Flies?${yellow}(y/n)${cc}";echo; #file edit
