@@ -5,7 +5,7 @@ blue='\033[0;34m'
 yellow='\033[1;33m'
 brown='\033[0;33'
 
-function file-edit{
+function file-edit {
 cd MC-Servers
 printf "\u001b[34mWhat Server Do You Want To Edit?\u001b[0m";echo;
 ls;
