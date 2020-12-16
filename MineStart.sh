@@ -160,9 +160,7 @@ case $msch in
 		cd ..
 		./MineStart.sh ;;
 	x) echo
-		printf "${yellow}[-]Exiting${cc}";echo; 
-		cd ..
-		./MineStart.sh ;;
+		printf "${yellow}[-]Exiting${cc}";echo ;;
 	*)
 		printf "${red}[-]WRONG ANSWER${cc}";echo;./MineStart.sh;
 		cd ..
