@@ -143,6 +143,8 @@ case $msch in
 					read chfiles;
 					case $chfiles in
 						Y | y) echo
+							cd ..
+							cd ..
 							file-edit ;;
 						N | n) echo
 							printf "${green}[+]Done!${cc}";echo ;;
