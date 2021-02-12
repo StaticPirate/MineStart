@@ -119,13 +119,13 @@ case $msch in
 					read servertype;
 					echo -e "${yellow}"
 					case $servertype in
-						Paper | paper) echo "Paper"
-								wget https://papermc.io/api/v1/paper/1.16.4/325/download ;;
-						Vanilla | vanilla) echo "Vanilla"
-								wget https://launcher.mojang.com/v1/objects/35139deedbd5182953cf1caa23835da59ca3d7cd/server.jar ;;
-						Bukkit | bukkit) echo "Bukkit"
+						Paper | paper) echo "Paper 1.16.5"
+								wget https://papermc.io/api/v2/projects/paper/versions/1.16.5/builds/467/downloads/paper-1.16.5-467.jar ;;
+						Vanilla | vanilla) echo "Vanilla 1.16.5"
+								wget https://launcher.mojang.com/v1/objects/1b557e7b033b583cd9f66746b7a9ab1ec1673ced/server.jar ;;
+						Bukkit | bukkit) echo "Bukkit 1.16.4"
 								wget https://cdn.getbukkit.org/craftbukkit/craftbukkit-1.16.4.jar ;;
-						Spigot | spigot)
+						Spigot | spigot) echo "Spigot 1.16.4"
 								wget https://cdn.getbukkit.org/spigot/spigot-1.16.4.jar ;;
 						*) echo
 								printf "${red}[-]Ivalid option${cc}";echo; ;;
