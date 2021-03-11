@@ -5,6 +5,6 @@ HOW TO GET SETUP
 
 HOW TO INSTALL YOUR SERVER
 
-chmod 755 MineStart.sh;./MineStart.sh
+chmod +rwx MineStart.sh;./MineStart.sh
 
 Thats It! Its That Simple!
